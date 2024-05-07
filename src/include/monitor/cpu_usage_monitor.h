@@ -6,6 +6,8 @@
 #define SYSTEM_MONITOR_CPU_USAGE_MONITOR_H
 
 #include "abstract_monitor.h"
+#include "utils/cpu_info.h"
+#include <map>
 #include <chrono>
 
 namespace system_monitor::monitor
@@ -23,12 +25,15 @@ namespace system_monitor::monitor
 
         string to_string() override;
 
+    protected:
+        cpu_usage_monitor();
+
     private:
-        void get_info();
+        map<string, utils::cpu_info> get_info();
 
     private:
         chrono::system_clock::time_point m_tp{chrono::system_clock::now() - 5s};
-
+        map<string, utils::cpu_info> cpu_infos{};
     };
 
 } // abstract_monitor
