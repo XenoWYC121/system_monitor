@@ -45,7 +45,7 @@ namespace system_monitor::monitor
     }
 
     cpu_usage_monitor::cpu_usage_monitor()
+            : cpu_infos(cpu_usage_monitor::get_info())
     {
-        this->get_info();
     }
 }

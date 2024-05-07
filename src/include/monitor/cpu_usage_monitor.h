@@ -29,7 +29,7 @@ namespace system_monitor::monitor
         cpu_usage_monitor();
 
     private:
-        map<string, utils::cpu_info> get_info();
+        static map<string, utils::cpu_info> get_info();
 
     private:
         chrono::system_clock::time_point m_tp{chrono::system_clock::now() - 5s};
