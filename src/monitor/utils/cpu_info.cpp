@@ -85,5 +85,5 @@ namespace system_monitor::monitor::utils
 
 
 } // utils
-// monitor
+// abstract_monitor
 // system_monitor

@@ -9,9 +9,9 @@
 
 namespace system_monitor::monitor
 {
-    unique_ptr<monitor> cpu_usage_monitor::clone()
+    unique_ptr<abstract_monitor> cpu_usage_monitor::clone()
     {
-        return unique_ptr<monitor>();
+        return unique_ptr<abstract_monitor>();
     }
 
     string cpu_usage_monitor::to_string()
@@ -28,5 +28,5 @@ namespace system_monitor::monitor
     {
 
     }
-} // monitor
+} // abstract_monitor
 // system_monitor

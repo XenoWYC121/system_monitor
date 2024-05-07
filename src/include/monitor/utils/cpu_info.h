@@ -59,7 +59,7 @@ namespace system_monitor::monitor::utils
     };
 
 } // utils
-// monitor
+// abstract_monitor
 // system_monitor
 
 #endif //SYSTEM_MONITOR_CPU_INFO_H

@@ -5,7 +5,7 @@
 #ifndef SYSTEM_MONITOR_CPU_USAGE_MONITOR_H
 #define SYSTEM_MONITOR_CPU_USAGE_MONITOR_H
 
-#include "monitor.h"
+#include "abstract_monitor.h"
 #include <chrono>
 
 namespace system_monitor::monitor
@@ -13,13 +13,13 @@ namespace system_monitor::monitor
     using namespace std;
 
     class cpu_usage_monitor
-            : public monitor
+            : public abstract_monitor
     {
     public:
         static unique_ptr<cpu_usage_monitor> get_monitor();
 
     public:
-        unique_ptr<monitor> clone() override;
+        unique_ptr<abstract_monitor> clone() override;
 
         string to_string() override;
 
@@ -31,7 +31,7 @@ namespace system_monitor::monitor
 
     };
 
-} // monitor
+} // abstract_monitor
 // system_monitor
 
 #endif //SYSTEM_MONITOR_CPU_USAGE_MONITOR_H
