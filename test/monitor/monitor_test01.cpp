@@ -47,5 +47,18 @@ TEST(monitor_test, test04)
     getline(cpu_stat, line1);
     cpu_info info2(line1);
     ASSERT_THROW(info1 - info2, std::logic_error);
+}
 
+TEST(monitor_test, cpu_monitor_test)
+{
+    using namespace system_monitor::monitor;
+    auto monitor1 = cpu_usage_monitor::get_monitor();
+    sleep(2);
+    auto str1 = monitor1->to_string();
+    auto str2 = monitor1->to_string();
+    cout << str1 << endl;
+    ASSERT_EQ(str1, str2);
+    sleep(4);
+    auto str3 = monitor1->to_string();
+    ASSERT_NE(str1, str3);
 }

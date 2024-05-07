@@ -16,14 +16,6 @@ namespace system_monitor::monitor
     public:
         virtual ~abstract_monitor() = default;
 
-        abstract_monitor(const abstract_monitor &) = delete;
-
-        abstract_monitor(abstract_monitor &&) = delete;
-
-        abstract_monitor &operator=(const abstract_monitor &) = delete;
-
-        abstract_monitor &operator=(abstract_monitor &&) = delete;
-
     public:
         virtual unique_ptr<abstract_monitor> clone() = 0;
 

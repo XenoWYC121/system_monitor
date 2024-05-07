@@ -7,6 +7,7 @@
 
 #include "abstract_monitor.h"
 #include "utils/cpu_info.h"
+#include "utils/cpu_usage.h"
 #include <map>
 #include <chrono>
 
@@ -31,9 +32,12 @@ namespace system_monitor::monitor
     private:
         static map<string, utils::cpu_info> get_info();
 
+        void calculate();
+
     private:
         chrono::system_clock::time_point m_tp{chrono::system_clock::now() - 5s};
         map<string, utils::cpu_info> cpu_infos{};
+        map<string, utils::cpu_usage> cpu_usages{};
     };
 
 } // abstract_monitor
