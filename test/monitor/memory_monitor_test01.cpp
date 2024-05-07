@@ -11,6 +11,5 @@ TEST(memory_monitor, test01)
 {
     using namespace system_monitor::monitor;
     auto monitor1 = memory_monitor::get_memory_monitor();
-    cout << "total: " << monitor1->get_total_ram() << "\tfree: " << monitor1->get_free_ram() << endl;
-    cout << "rate: " << monitor1->get_ram_usage() << endl;
+    ASSERT_LT(monitor1->get_ram_usage(), 1);
 }
