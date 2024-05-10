@@ -7,3 +7,5 @@ file(GLOB_RECURSE HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h ${CMAKE_CURREN
 add_subdirectory(proto)
 
 add_subdirectory(monitor)
+
+add_subdirectory(service)

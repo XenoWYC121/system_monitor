@@ -7,3 +7,13 @@ message memory_usage
   int32 total_ram = 1;
   int32 free_ram = 2;
 }
+
+message memory_request
+{
+
+}
+
+service get_memory_usage
+{
+  rpc get_usage(memory_request) returns (memory_usage) {}
+}

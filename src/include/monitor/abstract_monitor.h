@@ -21,8 +21,6 @@ namespace system_monitor::monitor
 
         virtual string to_string() = 0;
 
-        virtual string serialize_to_string() = 0;
-
     protected:
         abstract_monitor() = default;
     };

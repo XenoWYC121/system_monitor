@@ -14,3 +14,11 @@ message all_cpu_usage
 {
   repeated cpu_usage_info list = 1;
 }
+
+message cpu_request
+{
+}
+
+service get_cpu_usage {
+  rpc get_usage(cpu_request) returns (all_cpu_usage) {}
+}
