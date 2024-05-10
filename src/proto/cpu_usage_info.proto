@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package system_monitor.monitor;
+
+message cpu_usage_info
+{
+  string cpu_name = 1;
+  double total_usage = 2;
+  double system_usage = 3;
+  double user_usage = 4;
+}
+
+message all_cpu_usage
+{
+  repeated cpu_usage_info list = 1;
+}

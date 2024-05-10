@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package system_monitor.monitor;
+
+message memory_usage
+{
+  int32 total_ram = 1;
+  int32 free_ram = 2;
+}
