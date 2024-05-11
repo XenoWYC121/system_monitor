@@ -17,4 +17,4 @@ protobuf_generate(
         PLUGIN_OPTIONS generate_mock_code=true
         GENERATE_EXTENSIONS .grpc.pb.h .grpc.pb.cc)
 
-set(PROTO_TEST_HEADER ${PROJECT_BINARY_DIR}/proto PARENT_SCOPE)
+set(PROTO_LIB_HEADER ${PROJECT_BINARY_DIR}/src/proto PARENT_SCOPE)

@@ -5,6 +5,7 @@
 #ifndef SYSTEM_MONITOR_CPU_SERVICE_H
 #define SYSTEM_MONITOR_CPU_SERVICE_H
 
+#include "cpu_usage_info.grpc.pb.h"
 
 namespace system_monitor::service
 {
