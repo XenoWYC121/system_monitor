@@ -90,4 +90,10 @@ namespace system_monitor::monitor
             this->cpu_infos = std::move(new_info);
         }
     }
+
+    const map<string, utils::cpu_usage>& cpu_usage_monitor::get_cpu_usage()
+    {
+        this->calculate();
+        return this->cpu_usages;
+    }
 }

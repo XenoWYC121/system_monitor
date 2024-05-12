@@ -26,6 +26,8 @@ namespace system_monitor::monitor
 
         string to_string() override;
 
+        const map<string, utils::cpu_usage>& get_cpu_usage();
+
     protected:
         cpu_usage_monitor();
 

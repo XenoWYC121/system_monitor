@@ -1,3 +1,6 @@
+# 查找grpc
+find_package(gRPC REQUIRED)
+
 # 查找 GTest 库
 find_package(GTest REQUIRED)
 # GTest 的头文件
@@ -14,7 +17,7 @@ endforeach ()
 foreach (source_file target_name IN ZIP_LISTS test_source;test_target)
     add_executable(${target_name} ${source_file})
     # 链接测试库
-    target_link_libraries(${target_name} ${GTEST_BOTH_LIBRARIES} monitor)
+    target_link_libraries(${target_name} ${GTEST_BOTH_LIBRARIES} monitor gRPC::grpc++)
     # 加入到测试用例
     gtest_discover_tests(${target_name})
 endforeach ()
