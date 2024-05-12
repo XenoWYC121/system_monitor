@@ -4,7 +4,7 @@ find_package(Protobuf REQUIRED)
 file(GLOB PROTO_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.proto)
 
 add_library(proto_lib ${PROTO_FILES})
-target_link_libraries(proto_lib PUBLIC gRPC::grpc++)
+target_link_libraries(proto_lib PUBLIC gRPC::grpc++ ${Protobuf_LIBRARIES})
 
 # 生成proto接口
 protobuf_generate(TARGET proto_lib)
