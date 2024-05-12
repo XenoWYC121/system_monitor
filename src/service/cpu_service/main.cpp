@@ -2,11 +2,12 @@
 // Created by 12992 on 24-5-11.
 //
 #include <iostream>
-#include "cpu_usage_info.pb.h"
+#include "service/cpu_service/cpu_service.h"
 
 using namespace std;
+using namespace system_monitor::service;
 
 int main()
 {
-    cout << "hello world!" << endl;
+    cpu_service::run_server("0.0.0.0:25001");
 }

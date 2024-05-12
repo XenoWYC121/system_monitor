@@ -17,7 +17,8 @@ namespace system_monitor::service
     public:
         grpc::Status get_usage(::grpc::ServerContext* context, const ::system_monitor::monitor::cpu_request* request,
                                ::system_monitor::monitor::all_cpu_usage* response) override;
-
+    public:
+        static void run_server(const std::string& url);
     private:
         std::unique_ptr<monitor::cpu_usage_monitor> m_ptr{monitor::cpu_usage_monitor::get_monitor()};
     };

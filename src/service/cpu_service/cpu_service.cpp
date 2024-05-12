@@ -4,6 +4,7 @@
 
 #include "service/cpu_service/cpu_service.h"
 #include "cpu_usage_info.pb.h"
+#include "grpcpp/grpcpp.h"
 
 namespace system_monitor::service
 {
@@ -20,5 +21,16 @@ namespace system_monitor::service
             temp_info->set_user_usage(value.get_user_usage());
         }
         return grpc::Status::OK;
+    }
+
+    void cpu_service::run_server(const std::string& url)
+    {
+        using namespace std;
+        cpu_service service;
+        grpc::ServerBuilder builder;
+        builder.AddListeningPort(url, grpc::InsecureServerCredentials());
+        builder.RegisterService(&service);
+        auto server(builder.BuildAndStart());
+        server->Wait();
     }
 }
