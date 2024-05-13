@@ -13,7 +13,7 @@ namespace system_monitor::service
     {
         response->set_free_ram(static_cast<int>(this->m_monitor->get_free_ram()));
         response->set_total_ram(static_cast<int>(this->m_monitor->get_total_ram()));
-        return grpc::OK();
+        return grpc::Status::OK;
     }
 
     void memory_service::run_server(const std::string& url)

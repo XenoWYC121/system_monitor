@@ -7,7 +7,7 @@
 
 #include "memory_usage.grpc.pb.h"
 #include "monitor/memory_monitor.h"
-#include <iostrea>
+#include <iostream>
 namespace system_monitor::service
 {
     class memory_service

@@ -5,7 +5,7 @@
 #include "monitor/memory_monitor.h"
 #include <sys/errno.h>
 
-
+#include <sstream>
 #include <string>
 #include <iostream>
 #include <cstring>
@@ -22,7 +22,13 @@ namespace system_monitor::monitor
 
     string memory_monitor::to_string()
     {
-        return std::string();
+        stringstream ss;
+        ss << "total : " << this->get_total_ram() << "\tfree : " << this->get_free_ram();
+        struct sysinfo sysinfo1{};
+        sysinfo(&sysinfo1);
+        // cout << "hello : " << sysinfo1.freeram + sysinfo1.freehigh << endl;
+        // cout << "hello2 : " << (sysinfo1.totalram + sysinfo1.totalhigh) / 1024 / 1024 << endl;
+        return ss.rdbuf()->str();
     }
 
     unique_ptr<memory_monitor> memory_monitor::get_memory_monitor()
@@ -56,7 +62,7 @@ namespace system_monitor::monitor
     unsigned long memory_monitor::get_free_ram()
     {
         decltype(auto) info = memory_monitor::get_sys_info();
-        return info.freeram / (1024 * 1024);
+        return (info.freeram + info.freehigh) / (1024 * 1024);
     }
 
     double memory_monitor::get_ram_usage()
