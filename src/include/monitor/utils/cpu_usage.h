@@ -18,9 +18,9 @@ namespace system_monitor::monitor::utils
     public:
         friend cpu_usage operator-(const cpu_info& info1, const cpu_info& info2);
 
-        double get_usage() const { return this->m_user_usage; }
+        double get_usage() const { return this->m_cpu_usage; }
 
-        double get_user_usage() const { return this->m_cpu_usage; }
+        double get_user_usage() const { return this->m_user_usage; }
 
         double get_system_usage() const { return this->m_system_usage; }
 

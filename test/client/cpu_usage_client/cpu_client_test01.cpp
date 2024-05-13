@@ -20,7 +20,7 @@ TEST(client, cpu_usage_test01)
 TEST(client, cpu_usage_test02)
 {
     using namespace std;
-    cout << CPU_SERVICE_PATH << endl;
+    //cout << CPU_SERVICE_PATH << endl;
     pid_t pid = fork();
     ASSERT_NE(pid, -1);
     if (pid == 0)
@@ -39,7 +39,16 @@ TEST(client, cpu_usage_test02)
         this_thread::sleep_for(500ms);
         auto channel = grpc::CreateChannel("127.0.0.1:25001", grpc::InsecureChannelCredentials());
         system_monitor::client::cpu_usage_client client1(channel);
-        ASSERT_NO_THROW(auto res = client1.call());
+        ASSERT_NO_THROW(auto res2 = client1.call());
+        auto res3 = client1.call();
+        for (int i = 0; i < res3.list_size(); i++)
+        {
+            decltype(auto) obj = res3.list(i);
+            cout << obj.cpu_name() << '\t'
+                    << obj.total_usage() << '\t'
+                    << obj.system_usage() << '\t'
+                    << obj.user_usage() << endl;
+        }
         res.get();
     }
 }
