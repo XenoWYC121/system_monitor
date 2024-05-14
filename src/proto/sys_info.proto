@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package system_monitor.monitor;
+
+import "cpu_usage_info.proto";
+import "memory_usage.proto";
+
+message sys_info_response {
+  all_cpu_usage cpu_info = 1;
+  memory_usage memory_info = 2;
+}
+
+message sys_info_request {
+  bool get_cpu_info = 1;
+  bool get_memory_info = 2;
+}
+
+service sys_info_service
+{
+  rpc get_sys_info(sys_info_request) returns (sys_info_response) {}
+}
