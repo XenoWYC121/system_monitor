@@ -27,7 +27,7 @@ add_compile_definitions(
 foreach (source_file target_name IN ZIP_LISTS test_source;test_target)
     add_executable(${target_name} ${source_file})
     # 链接测试库
-    target_link_libraries(${target_name} ${GTEST_BOTH_LIBRARIES} monitor gRPC::grpc++ proto_lib cpu_usage_client memory_usage_client)
+    target_link_libraries(${target_name} ${GTEST_BOTH_LIBRARIES} monitor gRPC::grpc++ proto_lib cpu_usage_client memory_usage_client sys_info_client)
     # 加入到测试用例
     gtest_discover_tests(${target_name})
 endforeach ()
