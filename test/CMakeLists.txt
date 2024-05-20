@@ -22,6 +22,7 @@ endforeach ()
 add_compile_definitions(
         CPU_SERVICE_PATH="${PROJECT_BINARY_DIR}/src/service/cpu_service/cpu_service"
         MEMORY_SERVICE_PATH="${PROJECT_BINARY_DIR}/src/service/memory_service/memory_service"
+        SERVER_PATH="${PROJECT_BINARY_DIR}/src/server/grpc_server"
 )
 
 foreach (source_file target_name IN ZIP_LISTS test_source;test_target)
