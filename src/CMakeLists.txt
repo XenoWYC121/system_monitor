@@ -13,3 +13,5 @@ add_subdirectory(service)
 add_subdirectory(client)
 
 add_subdirectory(server)
+
+add_subdirectory(qt_monitor)
