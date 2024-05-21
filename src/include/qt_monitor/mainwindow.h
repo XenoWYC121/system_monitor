@@ -25,7 +25,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void newConnection(const QString &address = "");
+    void newConnection(const QString &address, int port);
 
     void newConnectionTest();
 

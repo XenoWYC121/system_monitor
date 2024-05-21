@@ -1,6 +1,8 @@
 #include "qt_monitor/mainwindow.h"
 #include "./ui_mainwindow.h"
 
+#include <thread>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
       , ui(new Ui::MainWindow)
@@ -14,10 +16,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::newConnection(const QString &address)
+void MainWindow::newConnection(const QString &address, int port)
 {
-    this->ui->tabWidget->addTab(new QWidget(this), "new tab");
+    qDebug() << "new connection in main window! address : " << address << " port : " << port;
 }
+
 
 void MainWindow::newConnectionTest()
 {

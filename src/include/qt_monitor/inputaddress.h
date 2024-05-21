@@ -19,12 +19,29 @@ QT_END_NAMESPACE
 
 class inputaddress : public QWidget
 {
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
+private:
     Q_OBJECT
 
 public:
     explicit inputaddress(QWidget *parent = nullptr);
 
     ~inputaddress() override;
+
+signals:
+    void addConnection(const QString &address, int port);
+
+private slots:
+    void addConnectionSlot();
+
+private:
+    void widgetInit();
+
+    void lineEditInit();
+
+    void signalInit(QWidget *parent);
 
 private:
     Ui::inputaddress *ui;
