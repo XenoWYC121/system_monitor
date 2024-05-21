@@ -17,8 +17,10 @@ set(
         main.cpp
         mainwindow.cpp
         monitorwidget.cpp
+        inputaddress.cpp
         mainwindow.ui
         monitorwidget.ui
+        inputaddress.ui
         ${HEADERS}
 )
 
