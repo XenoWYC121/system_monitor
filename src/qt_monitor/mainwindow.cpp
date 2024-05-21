@@ -1,6 +1,6 @@
 #include "qt_monitor/mainwindow.h"
 #include "./ui_mainwindow.h"
-
+#include "qt_monitor/monitorwidget.h"
 #include <thread>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -19,6 +19,8 @@ MainWindow::~MainWindow()
 void MainWindow::newConnection(const QString &address, int port)
 {
     qDebug() << "new connection in main window! address : " << address << " port : " << port;
+    const QString title = address + ":" + QString::number(port);
+    this->ui->tabWidget->addTab(new system_monitor::qt::monitorWidget(address, port, this), title);
 }
 
 
