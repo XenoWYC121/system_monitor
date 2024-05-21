@@ -16,8 +16,10 @@ set(
         PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
-        ${HEADERS}
+        monitorwidget.cpp
         mainwindow.ui
+        monitorwidget.ui
+        ${HEADERS}
 )
 
 qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES})

@@ -1,5 +1,5 @@
 #include "qt_monitor/mainwindow.h"
-
+#include "qt_monitor/monitorwidget.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
