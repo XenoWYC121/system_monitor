@@ -26,4 +26,4 @@ set(
 
 qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Core)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Core proto_lib sys_info_client cpu_usage_client memory_usage_client)

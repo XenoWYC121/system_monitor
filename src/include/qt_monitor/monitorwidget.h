@@ -5,6 +5,8 @@
 #ifndef MONITORWIDGET_H
 #define MONITORWIDGET_H
 
+#include "client/sys_info_client/sys_info_client.h"
+
 #include <QWidget>
 #include <thread>
 #include <atomic>
@@ -34,9 +36,9 @@ namespace system_monitor::qt
 
         void run();
 
-        void updateMemoryView();
+        void updateMemoryView(const monitor::memory_usage& memInfo);
 
-        void updateCpuView();
+        void updateCpuView(const monitor::all_cpu_usage& cpuInfo) const;
 
     private:
         Ui::monitorWidget *ui;
@@ -44,6 +46,7 @@ namespace system_monitor::qt
         const int port;
         std::thread t;
         std::atomic<bool> stopFlag{false};
+        client::sys_info_client client;
     };
 } // system_monitor::qt
 
