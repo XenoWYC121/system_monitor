@@ -5,7 +5,7 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_monitorWidget.h" resolved
 
 #include "sys_info.pb.h"
-
+#include "qt_monitor/msgBox.h"
 #include "qt_monitor/monitorwidget.h"
 #include <grpcpp/create_channel.h>
 
@@ -44,16 +44,7 @@ namespace system_monitor::qt
 
     void monitorWidget::updateInfo()
     {
-        monitor::sys_info_response res;
-        try
-        {
-            res = this->client.call(true, true);
-        }
-        catch (const std::runtime_error &error)
-        {
-            this->stopFlag = true;
-            QMessageBox::critical(this, "error", error.what());
-        }
+        const monitor::sys_info_response res = this->client.call(true, true);
         this->updateCpuView(res.cpu_info());
         this->updateMemoryView(res.memory_info());
     }
@@ -62,7 +53,17 @@ namespace system_monitor::qt
     {
         while (!this->stopFlag)
         {
-            this->updateInfo();
+            try
+            {
+                this->updateInfo();
+            }
+            catch (const std::runtime_error &error)
+            {
+                this->stopFlag = true;
+                //QMessageBox::critical(nullptr, "error", error.what());
+                msgBox::show("error", error.what(), 2);
+                return;
+            }
             std::this_thread::sleep_for(std::chrono::seconds(3));
         }
     }

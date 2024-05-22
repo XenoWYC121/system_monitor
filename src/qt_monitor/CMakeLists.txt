@@ -21,6 +21,7 @@ else ()
             mainwindow.cpp
             monitorwidget.cpp
             inputaddress.cpp
+            msgBox.cpp
             mainwindow.ui
             monitorwidget.ui
             inputaddress.ui
