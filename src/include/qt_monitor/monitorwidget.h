@@ -36,7 +36,7 @@ namespace system_monitor::qt
 
         void run();
 
-        void updateMemoryView(const monitor::memory_usage& memInfo);
+        void updateMemoryView(const monitor::memory_usage& memInfo) const;
 
         void updateCpuView(const monitor::all_cpu_usage& cpuInfo) const;
 

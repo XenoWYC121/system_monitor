@@ -67,8 +67,14 @@ namespace system_monitor::qt
         }
     }
 
-    void monitorWidget::updateMemoryView(const monitor::memory_usage &memInfo)
+    void monitorWidget::updateMemoryView(const monitor::memory_usage &memInfo) const
     {
+        this->ui->memoryTable->clear();
+        this->ui->memoryTable->setRowCount(1);
+        this->ui->memoryTable->setColumnCount(2);
+        this->ui->memoryTable->setHorizontalHeaderLabels({"total", "free"});
+        this->ui->memoryTable->setItem(0, 0, new QTableWidgetItem(QString::number(memInfo.total_ram())));
+        this->ui->memoryTable->setItem(0, 1, new QTableWidgetItem(QString::number(memInfo.free_ram())));
     }
 
     void monitorWidget::updateCpuView(const monitor::all_cpu_usage &cpuInfo) const
