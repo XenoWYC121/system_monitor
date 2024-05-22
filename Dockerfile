@@ -11,5 +11,5 @@ RUN echo "Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch"  > /e
 
 EXPOSE 25000
 
-CMD /root/system_monitor/docker/start.sh
+CMD bash /root/system_monitor/docker/start.sh
 
