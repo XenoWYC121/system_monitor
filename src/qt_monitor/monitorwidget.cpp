@@ -34,6 +34,7 @@ namespace system_monitor::qt
 
     monitorWidget::~monitorWidget()
     {
+        qDebug() << "monitor widget dtor";
         this->stopFlag = true;
         if (this->t.joinable())
         {

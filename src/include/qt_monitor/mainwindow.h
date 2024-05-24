@@ -20,7 +20,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow();
 
@@ -29,8 +29,11 @@ public slots:
 
     void newConnectionTest();
 
+private slots:
+    void deleteTap() const;
+
 private:
-    void signInSingl();
+    void initSignals();
 
 private:
     Ui::MainWindow *ui;

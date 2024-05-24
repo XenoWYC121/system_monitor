@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>604</height>
+    <height>608</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,6 +38,7 @@
      <string>连接</string>
     </property>
     <addaction name="newConnection"/>
+    <addaction name="deleteConnectionAction"/>
    </widget>
    <addaction name="connectionMenu"/>
   </widget>
@@ -45,6 +46,11 @@
   <action name="newConnection">
    <property name="text">
     <string>新连接</string>
+   </property>
+  </action>
+  <action name="deleteConnectionAction">
+   <property name="text">
+    <string>删除连接</string>
    </property>
   </action>
  </widget>
