@@ -53,7 +53,7 @@ void inputaddress::widgetInit()
 void inputaddress::lineEditInit()
 {
     this->ui->port->setValidator(new QIntValidator(0, 25536, this));
-    const QRegularExpression reg("[0-9]+.[0-9]+.[0-9]+.[0-9]");
+    const QRegularExpression reg("[0-9]+.[0-9]+.[0-9]+.[0-9]+");
     this->ui->address->setValidator(new QRegularExpressionValidator(reg, this));
 }
 
